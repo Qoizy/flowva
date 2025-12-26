@@ -1,16 +1,39 @@
-# React + Vite
+1. Prerequisites
+Node.js (v18.0.0 or higher)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+npm or yarn or pnpm
 
-Currently, two official plugins are available:
+2. Installation
+Clone the repository and install the dependencies:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+git clone https://github.com/your-username/flowva-dashboard.git
+cd flowva-dashboard
+pnpm install
 
-## React Compiler
+3. Environment Configuration
+Create a .env file in the root directory and add your authentication provider keys (if using Supabase, Firebase, etc.):
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+VITE_AUTH_API_KEY=********
+VITE_BASE_URL=**********
 
-## Expanding the ESLint configuration
+4. Running the Project
+Start the development server:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+pnpm run dev
+
+The application will be available at http://localhost:5173
+
+5. Building for Production
+To create an optimized production build:
+
+pnpm run build
+
+Deployment Note
+When deploying this project, you must manually add your Supabase credentials to your hosting provider's Environment Variables section. 
+
+| Variable Name | Value |
+| :--- | :--- |
+| `VITE_SUPABASE_URL` | Your Supabase Project URL |
+| `VITE_SUPABASE_ANON_KEY` | Your Supabase Anon Key |
+
+**Important:** Local `.env` files are ignored by git for security. Ensure these are set in your CI/CD pipeline.
